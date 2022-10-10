@@ -10,6 +10,28 @@ window.onscroll = function() {
   }
 };
 
+// Dropdown Navbar
+const dropdownButton = document.querySelector("#dropdownButton");
+const dropdownNavbar = document.querySelector("#dropdownNavbar");
+const dropdownNavbarHidden = document.querySelector("#dropdownNavbar .hidden");
+
+dropdownButton.addEventListener("click", function() {
+  dropdownNavbar.classList.toggle("hidden");
+});
+
+const navigation = document.querySelectorAll("nav a");
+navigation.forEach(function(nav) {
+  nav.addEventListener("click", function() {
+    dropdownNavbar.classList.add("hidden");
+  });
+})
+
+document.addEventListener("click", function(event) {
+  if (event.target != dropdownButton && event.target.parentNode != dropdownButton) {
+    dropdownNavbar.classList.add("hidden");
+  }
+});
+
 // Hamburger
 const hamburger = document.querySelector("#hamburger");
 const nav = document.querySelector('#nav');
